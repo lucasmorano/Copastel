@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 /**
 * Created by lucasmorano on 2/21/15.
 */
@@ -22,5 +24,11 @@ public class UserController  {
     @ResponseBody
     public User create(User user){
         return userService.create(new User());
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    @ResponseBody
+    public List<User> list(){
+        return userService.findAll();
     }
 }

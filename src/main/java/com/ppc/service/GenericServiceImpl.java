@@ -30,7 +30,7 @@ public class GenericServiceImpl<Document> implements GenericService<Document> {
 
     @Override
     public List<Document> findAll() {
-        return null;
+        return repo.findAll();
     }
 
     @Override
