@@ -1,13 +1,11 @@
 package com.ppc.repo;
 
-import org.springframework.data.repository.Repository;
-
 import java.util.List;
 
 /**
 * Created by lucasmorano on 2/21/15.
 */
-public interface GenericRepository<Document> { //extends Repository<Document, String> {
+public interface GenericRepository<Document> {
 
     void remove(String id);
 

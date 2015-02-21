@@ -2,15 +2,15 @@ package com.ppc.repo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
 * Created by lucasmorano on 2/21/15.
 */
-@Repository
-public class GenericRepositoryImpl<Document> implements GenericRepository<Document> {
+public abstract class GenericRepositoryImpl<Document> implements GenericRepository<Document> {
+
+    abstract Class<Document> getClazz();
 
     @Autowired
     private MongoTemplate mongoTemplate;
@@ -22,21 +22,25 @@ public class GenericRepositoryImpl<Document> implements GenericRepository<Docume
 
     @Override
     public Document create(Document document) {
-        return null;
+        mongoTemplate.save(document);
+        return document;
     }
 
     @Override
     public Document update(Document document) {
-        return null;
+        mongoTemplate.save(document);
+        return document;
     }
 
     @Override
     public List<Document> findAll() {
-        return null;
+        return mongoTemplate.findAll(getClazz());
     }
 
     @Override
     public Document findById(String id) {
         return null;
     }
+
+
 }

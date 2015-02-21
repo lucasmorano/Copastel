@@ -16,4 +16,5 @@ public interface GenericService<Document> {
     List<Document> findAll();
 
     Document findById(String id);
+
 }

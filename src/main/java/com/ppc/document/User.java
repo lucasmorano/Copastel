@@ -1,5 +1,7 @@
 package com.ppc.document;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -17,6 +19,7 @@ public class User {
 
     private String login;
 
+    @JsonIgnore
     private String password;
 
     private List<Device> devices;
@@ -39,10 +42,12 @@ public class User {
         this.login = login;
     }
 
+    @JsonIgnore
     public String getPassword() {
         return password;
     }
 
+    @JsonProperty
     public void setPassword(String password) {
         this.password = password;
     }

@@ -8,7 +8,7 @@ import java.util.List;
 /**
 * Created by lucasmorano on 2/21/15.
 */
-public class GenericServiceImpl<Document> implements GenericService<Document> {
+public abstract class GenericServiceImpl<Document> implements GenericService<Document> {
 
     @Autowired
     private GenericRepository<Document> repo;
@@ -37,4 +37,5 @@ public class GenericServiceImpl<Document> implements GenericService<Document> {
     public Document findById(String id) {
         return null;
     }
+
 }

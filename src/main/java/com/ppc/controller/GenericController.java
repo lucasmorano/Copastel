@@ -2,10 +2,7 @@ package com.ppc.controller;
 
 import com.ppc.service.GenericService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,7 +16,7 @@ public class GenericController<Document> {
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public Document create(Document document){
+    public Document create(@RequestBody Document document){
         return service.create(document);
     }
 
