@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 /**
  * Created by lucasmorano on 2/21/15.
@@ -20,20 +21,46 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private LoginUserService loginUserService;
 
+    @Autowired
+    private AuthenticationSuccessHandler authSuccessHandler;
+
+    @Autowired
+    private RESTAuthenticationEntryPoint authenticationEntryPoint;
+
+    @Autowired
+    private RESTAuthenticationSuccessHandler authenticationSuccessHandler;
+
+    @Autowired
+    private RESTAuthenticationFailureHandler authenticationFailureHandler;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().authorizeRequests()
-                .antMatchers("/", "/home", "/User/Register").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .permitAll()
-                .and()
-                .logout()
-                .deleteCookies("remember-me")
-                .permitAll()
-                .and().rememberMe();
+        http.authorizeRequests().antMatchers("/api/**").authenticated();
+        http.exceptionHandling().authenticationEntryPoint(authenticationEntryPoint);
+        http.formLogin().successHandler(authenticationSuccessHandler);
+        http.formLogin().failureHandler(authenticationFailureHandler);
+        http.csrf().disable();
+//        http.authorizeRequests()
+//                .antMatchers("/", "/home", "/User/Register").permitAll()
+//                .anyRequest().authenticated()
+//                .and()
+//                .formLogin()
+//                .loginPage("/login")
+//                .successHandler(authSuccessHandler)
+//                .permitAll()
+//                .and()
+//                .logout()
+//                .deleteCookies("remember-me")
+//                .permitAll()
+//                .and()
+//                .rememberMe()
+//                .and()
+//                .formLogin()
+//                .passwordParameter("password")
+//                .usernameParameter("username")
+//                .loginPage("/login")
+//                .failureUrl("/login?error")
+//                .defaultSuccessUrl("/home");
     }
 
 

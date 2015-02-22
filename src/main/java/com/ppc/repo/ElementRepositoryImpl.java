@@ -18,10 +18,6 @@ public class ElementRepositoryImpl extends GenericRepositoryImpl<Element> implem
     private static final String ELEMENT_DATE = "elements.createdDate";
     private static final String ELEMENTS = "elements";
 
-    private static final String LOGIN = "login";
-    private static final String ELEMENT_DATE = "elements.createdDate";
-    private static final String ELEMENTS = "elements";
-
     @Override
     Class<Element> getType() {
         return Element.class;
