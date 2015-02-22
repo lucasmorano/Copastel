@@ -7,8 +7,8 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
 
 /**
-* Created by lucasmorano on 2/21/15.
-*/
+ * Created by lucasmorano on 2/21/15.
+ */
 public class CustomOmmitSerializer extends StdSerializer<String> {
 
     public CustomOmmitSerializer(Class<String> t) {
@@ -16,8 +16,8 @@ public class CustomOmmitSerializer extends StdSerializer<String> {
     }
 
     @Override
-        public void serialize(String value, JsonGenerator jgen, SerializerProvider provider)
-                throws IOException {
+    public void serialize(String value, JsonGenerator jgen, SerializerProvider provider)
+            throws IOException {
         jgen.writeString(value);
-        }
+    }
 }

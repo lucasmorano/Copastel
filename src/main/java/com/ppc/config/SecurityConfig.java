@@ -11,8 +11,8 @@ import org.springframework.security.config.annotation.web.servlet.configuration.
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
-* Created by lucasmorano on 2/21/15.
-*/
+ * Created by lucasmorano on 2/21/15.
+ */
 @Configuration
 @EnableWebMvcSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {

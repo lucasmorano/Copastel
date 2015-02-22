@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.ppc.dto.Role;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.TextIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class User {
     @Id
     private ObjectId id;
 
+    @TextIndexed
     private String login;
 
     @JsonProperty

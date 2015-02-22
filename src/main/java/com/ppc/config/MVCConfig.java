@@ -18,18 +18,18 @@ import java.util.Date;
 import java.util.List;
 
 /**
-* Created by lucasmorano on 2/21/15.
-*/
+ * Created by lucasmorano on 2/21/15.
+ */
 @Configuration
 public class MVCConfig extends WebMvcConfigurerAdapter {
 
-        @Override
-        public void addViewControllers(ViewControllerRegistry registry) {
-            registry.addViewController("/home").setViewName("index");
-            registry.addViewController("/").setViewName("index");
-            registry.addViewController("/hello").setViewName("welcome");
-            registry.addViewController("/login").setViewName("login2");
-        }
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/home").setViewName("index");
+        registry.addViewController("/").setViewName("index");
+        registry.addViewController("/hello").setViewName("welcome");
+        registry.addViewController("/login").setViewName("login2");
+    }
 
 
     @Override
@@ -38,7 +38,7 @@ public class MVCConfig extends WebMvcConfigurerAdapter {
                 .addResourceLocations("/resources/");
     }
 
-    public MappingJackson2HttpMessageConverter customJackson2HttpMessageConverter(){
+    public MappingJackson2HttpMessageConverter customJackson2HttpMessageConverter() {
         MappingJackson2HttpMessageConverter jsonConverter = new MappingJackson2HttpMessageConverter();
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);

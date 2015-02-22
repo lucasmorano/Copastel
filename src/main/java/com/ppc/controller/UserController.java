@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
-* Created by lucasmorano on 2/21/15.
-*/
+ * Created by lucasmorano on 2/21/15.
+ */
 @RequestMapping("/User")
 @Controller
 public class UserController extends GenericController<User> {
@@ -19,9 +19,9 @@ public class UserController extends GenericController<User> {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value ="/Register", method = RequestMethod.POST)
+    @RequestMapping(value = "/Register", method = RequestMethod.POST)
     @ResponseBody
-    public void register(@RequestBody User user){
+    public void register(@RequestBody User user) {
         userService.create(user);
     }
 

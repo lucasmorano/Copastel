@@ -9,8 +9,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
-* Created by lucasmorano on 2/21/15.
-*/
+ * Created by lucasmorano on 2/21/15.
+ */
 public class CustomDateSerializer extends StdSerializer<Date> {
 
     private static final String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";

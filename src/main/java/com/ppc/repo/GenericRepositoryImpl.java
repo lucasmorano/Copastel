@@ -8,8 +8,8 @@ import org.springframework.data.mongodb.core.query.Query;
 import java.util.List;
 
 /**
-* Created by lucasmorano on 2/21/15.
-*/
+ * Created by lucasmorano on 2/21/15.
+ */
 public abstract class GenericRepositoryImpl<Document> implements GenericRepository<Document> {
 
     private static final String ID = "id";

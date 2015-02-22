@@ -23,6 +23,6 @@ public class ApiServiceImpl implements ApiService {
 
     @Override
     public void addElement(Element element) {
-         elementService.addElementToLoggedUser(element);
+        elementService.addElementToLoggedUser(element);
     }
 }

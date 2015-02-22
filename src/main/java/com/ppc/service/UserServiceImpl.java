@@ -22,7 +22,7 @@ public class UserServiceImpl extends GenericServiceImpl<User> implements UserSer
     @Override
     public UserDetails findUserByLogin(String login) throws UsernameNotFoundException {
         User user = userRepository.findUserByLogin(login);
-        if(user == null){
+        if (user == null) {
             throw new UsernameNotFoundException("Check your credentials");
         }
         return new UserLogin(user.getLogin(), user.getPassword(), AuthorityUtils.createAuthorityList(user.getRole().toString()));

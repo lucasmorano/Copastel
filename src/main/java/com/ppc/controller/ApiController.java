@@ -24,13 +24,13 @@ public class ApiController {
 
     @RequestMapping(value = "/GetFeed", method = RequestMethod.POST)
     @ResponseBody
-    public List<Element> getFeed(@RequestBody FeedRequestDTO feedRequestDTO){
+    public List<Element> getFeed(@RequestBody FeedRequestDTO feedRequestDTO) {
         return apiService.getFeed(feedRequestDTO);
     }
 
     @RequestMapping(value = "/AddElement", method = RequestMethod.POST)
     @ResponseBody
-    public void addElement(@RequestBody Element element){
+    public void addElement(@RequestBody Element element) {
         apiService.addElement(element);
     }
 }

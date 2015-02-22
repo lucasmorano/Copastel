@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 /**
-* Created by lucasmorano on 2/21/15.
-*/
+ * Created by lucasmorano on 2/21/15.
+ */
 public abstract class GenericServiceImpl<Document> implements GenericService<Document> {
 
     @Autowired

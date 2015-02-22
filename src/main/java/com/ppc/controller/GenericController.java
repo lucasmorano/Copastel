@@ -16,25 +16,25 @@ public class GenericController<Document> {
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public Document create(@RequestBody Document document){
+    public Document create(@RequestBody Document document) {
         return service.create(document);
     }
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public List<Document> list(){
+    public List<Document> list() {
         return service.findAll();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public void remove(@PathVariable String id){
+    public void remove(@PathVariable String id) {
         service.remove(id);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public Document retrieve(@PathVariable String id){
+    public Document retrieve(@PathVariable String id) {
         return service.findById(id);
     }
 
