@@ -11,11 +11,11 @@ import java.util.List;
 public abstract class GenericServiceImpl<Document> implements GenericService<Document> {
 
     @Autowired
-    private GenericRepository<Document> repo;
+    protected GenericRepository<Document> repo;
 
     @Override
     public void remove(String id) {
-
+        repo.remove(id);
     }
 
     @Override
@@ -25,7 +25,7 @@ public abstract class GenericServiceImpl<Document> implements GenericService<Doc
 
     @Override
     public Document update(Document document) {
-        return null;
+        return repo.update(document);
     }
 
     @Override
@@ -35,7 +35,7 @@ public abstract class GenericServiceImpl<Document> implements GenericService<Doc
 
     @Override
     public Document findById(String id) {
-        return null;
+        return repo.findById(id);
     }
 
 }

@@ -1,17 +1,11 @@
 package com.ppc.repo;
 
 import com.ppc.document.User;
-import org.springframework.stereotype.Repository;
 
 /**
- * Created by lucasmorano on 2/21/15.
+ * Created by lucasmorano on 2/22/15.
  */
-@Repository
-public class UserRepository extends GenericRepositoryImpl<User> implements GenericRepository<User> {
+public interface UserRepository extends GenericRepository<User> {
 
-    @Override
-    public Class getClazz() {
-        return User.class;
-    }
-
+    User findUserByLogin(String login);
 }

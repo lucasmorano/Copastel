@@ -2,6 +2,8 @@ package com.ppc.repo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 
 import java.util.List;
 
@@ -10,14 +12,17 @@ import java.util.List;
 */
 public abstract class GenericRepositoryImpl<Document> implements GenericRepository<Document> {
 
-    abstract Class<Document> getClazz();
+    private static final String ID = "id";
+
+    abstract Class<Document> getType();
 
     @Autowired
-    private MongoTemplate mongoTemplate;
+    protected MongoTemplate mongoTemplate;
 
     @Override
     public void remove(String id) {
-        //mongoTemplate.findAndRemove();
+        Query query = Query.query(Criteria.where(ID).is(id));
+        mongoTemplate.remove(query, getType());
     }
 
     @Override
@@ -34,12 +39,12 @@ public abstract class GenericRepositoryImpl<Document> implements GenericReposito
 
     @Override
     public List<Document> findAll() {
-        return mongoTemplate.findAll(getClazz());
+        return mongoTemplate.findAll(getType());
     }
 
     @Override
     public Document findById(String id) {
-        return null;
+        return mongoTemplate.findById(id, getType());
     }
 
 

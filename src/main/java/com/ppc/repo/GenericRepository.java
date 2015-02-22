@@ -16,4 +16,6 @@ public interface GenericRepository<Document> {
     List<Document> findAll();
 
     Document findById(String id);
+
+
 }

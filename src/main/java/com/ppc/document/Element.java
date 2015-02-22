@@ -1,21 +1,20 @@
 package com.ppc.document;
 
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import java.util.Date;
+import java.util.UUID;
 
 /**
  * Created by lucasmorano on 2/21/15.
  */
-@Document
 public class Element {
 
-    @Id
-    private ObjectId id;
+    private String id = UUID.randomUUID().toString();
 
-    private ElementType elementType;
+    private ElementType elementType = ElementType.TEXT;
 
     private String value;
+
+    private Date createdDate = new Date();
 
     public ElementType getElementType() {
         return elementType;
