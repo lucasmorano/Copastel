@@ -2,6 +2,7 @@ package com.ppc.service;
 
 import com.ppc.context.Context;
 import com.ppc.document.Element;
+import com.ppc.document.User;
 import com.ppc.dto.FeedRequestDTO;
 import com.ppc.repo.ElementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,8 @@ public class ElementServiceImpl extends GenericServiceImpl<Element> implements E
 
     @Override
     public List<Element> getFeedFromLoggedUser(FeedRequestDTO feedRequestDTO) {
-        UserDetails loggedUser = context.getLoggedUser();
-        return elementRepository.getFeedFromUser(loggedUser.getUsername(), feedRequestDTO);
+        User user = elementRepository.getFeedFromUser(context.getLoggedUser().getUsername(), feedRequestDTO);
+        return user.getElements();
     }
 
     @Override
