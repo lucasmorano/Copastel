@@ -24,7 +24,7 @@ public class ApiController {
 
     @RequestMapping(value = "/GetFeed", method = RequestMethod.POST)
     @ResponseBody
-    public List<Element> getFeed(@RequestBody FeedRequestDTO feedRequestDTO) {
+    public List<Element> getFeed(@RequestBody(required = false) FeedRequestDTO feedRequestDTO) {
         return apiService.getFeed(feedRequestDTO);
     }
 
