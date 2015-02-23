@@ -1,0 +1,6 @@
+language: java
+services: mongodb
+
+install: true
+before_script:
+script: mvn compile
