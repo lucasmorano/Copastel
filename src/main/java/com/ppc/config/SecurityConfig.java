@@ -25,18 +25,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private AuthenticationSuccessHandler authSuccessHandler;
 
     @Autowired
-    private RESTAuthenticationEntryPoint authenticationEntryPoint;
+    private AuthenticationEntry authenticationEntry;
 
     @Autowired
-    private RESTAuthenticationSuccessHandler authenticationSuccessHandler;
+    private AuthenticationSuccessHandler authenticationSuccessHandler;
 
     @Autowired
-    private RESTAuthenticationFailureHandler authenticationFailureHandler;
+    private AuthenticationFailureHandler authenticationFailureHandler;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/api/**").authenticated();
-        http.exceptionHandling().authenticationEntryPoint(authenticationEntryPoint);
+        http.exceptionHandling().authenticationEntryPoint(authenticationEntry);
         http.formLogin().successHandler(authenticationSuccessHandler);
         http.formLogin().failureHandler(authenticationFailureHandler);
         http.csrf().disable();
